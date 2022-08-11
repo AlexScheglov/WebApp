@@ -1,0 +1,5 @@
+.table-fixed {
+    overflow: auto;
+    max-height: 400px;
+    margin-bottom: 10px;
+}

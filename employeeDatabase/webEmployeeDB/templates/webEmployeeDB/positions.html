@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<!-- Таблица должностей -->
+<div class="page" id="positions-page">
+    <div class="container my-2 w-50">
+        <h1 class="m-2">Должности</h1>
+        <div class="container p-4 shadow-lg">
+            <div class="table-fixed">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Название</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button id="add-position-button" type="button" class="btn btn-info">Добавить категорию</button>
+                <button id="edit-position-button" type="button" class="btn btn-warning">Редактировать</button>
+                <button id="delete-position-button" type="button" class="btn btn-danger">Удалить</button>
+                <h5 class="m-2 text-danger">ВНИМАНИЕ!!! Должность невозможно удалить пока она назначена.</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Добавить/рудактировать должность -->
+<div class="page visually-hidden" id="add-position-page">
+    <div class="container my-5 w-50">
+        <div class="p-4 shadow-lg row g-3">
+            <form class="col-12">
+                <label for="position-name" class="form-label">Название</label>
+                <input type="text" class="form-control" id="position-name" value=""
+                       required="" minlength="1" maxlength="50" pattern="[A-Za-zА-Яа-я]*-?[A-Za-zА-Яа-я]+">
+            </form>
+            <div class="col-12">
+                <button id="save-position" class="btn btn-success">Сохранить</button>
+                <button id="close" class="btn btn-dark">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/position.js'%}"></script>
+{% endblock %}

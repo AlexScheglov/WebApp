@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<!-- Таблица категрий -->
+<div class="page" id="categories-page">
+    <div class="container my-2 w-50">
+        <h1 class="m-2">Категории</h1>
+        <div class="container p-4 shadow-lg">
+            <div class="table-fixed">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Название</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button id="add-category-button" type="button" class="btn btn-info">Добавить категорию</button>
+                <button id="edit-category-button" type="button" class="btn btn-warning">Редактировать</button>
+                <button id="delete-category-button" type="button" class="btn btn-danger">Удалить</button>
+                <h5 class="m-2 text-danger">ВНИМАНИЕ!!! Категорию невозможно удалить пока она назначена.</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Добавить/рудактировать категорию -->
+<div class="page visually-hidden" id="add-category-page">
+    <div class="container my-5 w-50">
+        <div class="p-4 shadow-lg row g-3">
+            <form class="col-12">
+                <label for="category-name" class="form-label">Название</label>
+                <input type="text" class="form-control" id="category-name" value=""
+                       required="" minlength="1" maxlength="50" pattern="[A-Za-zА-Яа-я]*-?[A-Za-zА-Яа-я]+">
+            </form>
+            <div class="col-12">
+                <button id="save-category" class="btn btn-success">Сохранить</button>
+                <button id="close" class="btn btn-dark">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/category.js'%}"></script>
+{% endblock %}

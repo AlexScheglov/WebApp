@@ -1,0 +1,79 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<!-- Таблица сотрудников -->
+<div class="page" id="employees-page">
+    <div class="container my-2 w-75 h-25">
+        <h1 class="m-2">Сотрудники</h1>
+        <div class="container p-4 shadow-lg">
+            <div class="table-fixed">
+                <table class="table table-hover" id="employees-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ф.И.О.</th>
+                        <th scope="col">Возраст</th>
+                        <th scope="col">Пол</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Должность</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button id="add-employee-button" type="button" class="btn btn-info">Добавить пользователя</button>
+                <button id="edit-employee-button" type="button" class="btn btn-warning">Редактировать</button>
+                <button id="delete-employee-button" type="button" class="btn btn-danger">Удалить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Добавить/рудактировать сотрудника -->
+<div class="page visually-hidden" id="add-employee-page">
+    <div class="container my-5 w-75">
+        <div class="p-4 shadow-lg">
+            <form class="row g-3">
+                <div class="col-md-4">
+                    <label for="employee_fio" class="form-label">Ф.И.О.</label>
+                    <input type="text" class="form-control" id="employee_fio" value=""
+                           required="" minlength="3" maxlength="50"
+                           pattern="[A-Za-zА-Яа-яЁё]*-?[A-Za-zА-Яа-яЁё]+\s[A-Za-zА-Яа-яЁё]*-?[A-Za-zА-Яа-яЁё]+\s[A-Za-zА-Яа-яЁё]*-?[A-Za-zА-Яа-яЁё]+">
+                </div>
+                <div class="col-md-3">
+                    <label for="age" class="form-label">Возраст</label>
+                    <input type="number" class="form-control" id="age" required="" min="18" max="64">
+                </div>
+                <div class="col-md-3">
+                    <label for="gender" class="form-label">Пол</label>
+                    <select class="form-select" id="gender" required="">
+                        <option>Мужской</option>
+                        <option>Женский</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="category_name" class="form-label">Категория</label>
+                    <select class="form-select" id="category_name" required="">
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="position_name" class="form-label">Должность</label>
+                    <select class="form-select" id="position_name" required="">
+                    </select>
+                </div>
+            </form>
+            <div class="col-12 mt-3">
+                <button id="save-employee" class="btn btn-success">Сохранить</button>
+                <button id="close" class="btn btn-dark">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/employees.js'%}"></script>
+{% endblock %}
