@@ -14,6 +14,7 @@
 - pytz 2022.1
 - psycopg2 2.8
 - Bootstrap 5
+- PostgreSQL 11
 
 ## Инструкция по запуску
 Для запуска приложения в системме должен быть установлен Python 3.7 и два модуля Python3-pip и Python3-venv.
